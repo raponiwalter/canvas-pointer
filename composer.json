@@ -1,15 +1,15 @@
 {
-    "name": "ruelluna/canvas-pointer",
+    "name": "wraps/canvas-pointer",
     "description": "A Filament field that allows users to click and point markers on an image.",
     "keywords": [
         "RuelLuna",
         "laravel",
         "canvas-pointer"
     ],
-    "homepage": "https://github.com/ruelluna/canvas-pointer",
+    "homepage": "https://github.com/wraps/canvas-pointer",
     "support": {
-        "issues": "https://github.com/ruelluna/canvas-pointer/issues",
-        "source": "https://github.com/ruelluna/canvas-pointer"
+        "issues": "https://github.com/wraps/canvas-pointer/issues",
+        "source": "https://github.com/wraps/canvas-pointer"
     },
     "license": "MIT",
     "authors": [
@@ -20,15 +20,15 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "filament/filament": "^3.0|^4.0",
+        "php": "^8.2",
+        "filament/filament": "^5.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^8.0",
-        "nunomaduro/larastan": "^3.0",
-        "orchestra/testbench": "^9.0",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-arch": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
@@ -39,13 +39,13 @@
     },
     "autoload": {
         "psr-4": {
-            "RuelLuna\\CanvasPointer\\": "src/",
-            "RuelLuna\\CanvasPointer\\Database\\Factories\\": "database/factories/"
+            "Wraps\\CanvasPointer\\": "src/",
+            "Wraps\\CanvasPointer\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RuelLuna\\CanvasPointer\\Tests\\": "tests/"
+            "Wraps\\CanvasPointer\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -65,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RuelLuna\\CanvasPointer\\CanvasPointerServiceProvider"
+                "Wraps\\CanvasPointer\\CanvasPointerServiceProvider"
             ],
             "aliases": {
-                "CanvasPointer": "RuelLuna\\CanvasPointer\\Facades\\CanvasPointer"
+                "CanvasPointer": "Wraps\\CanvasPointer\\Facades\\CanvasPointer"
             }
         }
     },

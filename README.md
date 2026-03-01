@@ -1,11 +1,11 @@
-# A Filament field that allows users to click and point to mark references on an image.
+# A Filament 5 field that allows users to click and point to mark references on an image.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ruelluna/canvas-pointer.svg?style=flat-square)](https://packagist.org/packages/ruelluna/canvas-pointer)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ruelluna/canvas-pointer/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ruelluna/canvas-pointer/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ruelluna/canvas-pointer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ruelluna/canvas-pointer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/ruelluna/canvas-pointer.svg?style=flat-square)](https://packagist.org/packages/ruelluna/canvas-pointer)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/wraps/canvas-pointer.svg?style=flat-square)](https://packagist.org/packages/wraps/canvas-pointer)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/wraps/canvas-pointer/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/wraps/canvas-pointer/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/wraps/canvas-pointer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/wraps/canvas-pointer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/wraps/canvas-pointer.svg?style=flat-square)](https://packagist.org/packages/wraps/canvas-pointer)
 
-<img src="https://raw.githubusercontent.com/ruelluna/canvas-pointer/main/main.jpg" class="filament-hidden">
+<img src="https://raw.githubusercontent.com/wraps/canvas-pointer/main/main.jpg" class="filament-hidden">
 
 I have used it for a client that needs visual reprensentations to where the pains are located in the body. What is your use case? This field will produce a base-64 image and automatically convert it to a file stored in your configured storage disk, returning the URL to the image.
 
@@ -14,13 +14,32 @@ I have used it for a client that needs visual reprensentations to where the pain
 You can install the package via composer:
 
 ```bash
-composer require ruelluna/canvas-pointer
+composer require wraps/canvas-pointer
+```
+
+This package targets Filament `^5.0`.
+
+If you want to register the plugin in your panel:
+
+```php
+use Filament\Panel;
+use Wraps\CanvasPointer\CanvasPointerPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            CanvasPointerPlugin::make(),
+        ]);
+}
 ```
 
 
 ## Usage
 
 ```php
+use Wraps\CanvasPointer\Forms\Components\CanvasPointerField;
+
 CanvasPointerField::make('body-points')
     ->pointRadius(15) // default is 5
     ->imageUrl('your image source')

@@ -1,6 +1,6 @@
 <?php
 
-namespace RuelLuna\CanvasPointer\Forms\Components;
+namespace Wraps\CanvasPointer\Forms\Components;
 
 use Filament\Forms\Components\Field;
 use Illuminate\Support\Facades\Storage;
