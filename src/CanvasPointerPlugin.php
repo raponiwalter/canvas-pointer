@@ -1,6 +1,6 @@
 <?php
 
-namespace RuelLuna\CanvasPointer;
+namespace Wraps\CanvasPointer;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;

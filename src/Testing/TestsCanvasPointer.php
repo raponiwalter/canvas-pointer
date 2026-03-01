@@ -1,6 +1,6 @@
 <?php
 
-namespace RuelLuna\CanvasPointer\Testing;
+namespace Wraps\CanvasPointer\Testing;
 
 use Livewire\Features\SupportTesting\Testable;
 

@@ -1,16 +1,13 @@
 <?php
 
-namespace RuelLuna\CanvasPointer;
+namespace Wraps\CanvasPointer;
 
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
-use RuelLuna\CanvasPointer\Testing\TestsCanvasPointer;
+use Wraps\CanvasPointer\Testing\TestsCanvasPointer;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -35,7 +32,7 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('ruelluna/canvas-pointer');
+                    ->askToStarRepoOnGitHub('wraps/canvas-pointer');
             });
 
         $configFileName = $package->shortName();
@@ -57,7 +54,10 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void
+    {
+        //
+    }
 
     public function packageBooted(): void
     {
@@ -72,9 +72,6 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
-
         // Handle Stubs
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
@@ -85,12 +82,12 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsCanvasPointer);
+        Testable::mixin(new TestsCanvasPointer());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return 'ruelluna/canvas-pointer';
+        return 'wraps/canvas-pointer';
     }
 
     /**
@@ -114,14 +111,6 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
         return [
             // CanvasPointerCommand::class,
         ];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getIcons(): array
-    {
-        return [];
     }
 
     /**
